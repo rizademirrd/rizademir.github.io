@@ -12,42 +12,22 @@
   "email": "rizademirrd@gmail.com",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "TR"
+    "addressCountry": "TR",
+    "addressRegion": "İzmir",
+    "addressLocality": "İzmir"
   },
   "medicalSpecialty": "Cardiovascular",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Damar Tedavi Hizmetleri",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Varis Tedavisi",
-          "description": "Bacaklardaki ağrı, şişlik ve istenmeyen damar görüntüsünden kurtulma tedavileri"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Derin Ven Trombozu (DVT) Tedavisi",
-          "description": "Derin ven trombozu gibi ciddi damar rahatsızlıklarının tedavisi"
-        }
-      }
-    ]
+  "serviceArea": {
+    "@type": "AdministrativeArea",
+    "name": "İzmir"
   },
-  "employee": {
+  "founder": {
     "@type": "Physician",
     "name": "Rıza Demir",
     "jobTitle": "Kalp ve Damar Cerrahisi Uzmanı",
     "medicalSpecialty": "Cardiovascular",
     "description": "Dr. Rıza Demir, damar sağlığı alanında uzmanlaşmış bir hekimdir. Özellikle varis tedavisi ve derin ven trombozu (DVT) tedavisi konularında uzun yıllara dayanan deneyimiyle hastalarına etkili ve güvenilir çözümler sunmaktadır.",
     "knowsAbout": ["Varis Tedavisi", "Derin Ven Trombozu", "Kalp ve Damar Cerrahisi"],
-    "workLocation": {
-      "@type": "MedicalOrganization",
-      "name": "İzmir Metropol Hastanesi"
-    },
     "alumniOf": [
       {
         "@type": "EducationalOrganization",
@@ -57,13 +37,31 @@
     "hasOccupation": {
       "@type": "Occupation",
       "name": "Kalp ve Damar Cerrahisi Uzmanı",
-      "yearsOfExperience": 30,
-      "occupationLocation": {
-        "@type": "City",
-        "name": "İzmir"
-      }
+      "yearsOfExperience": 30
+    },
+    "workLocation": {
+      "@type": "Hospital",
+      "name": "İzmir Metropol Hastanesi"
     }
   },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Varis Tedavisi",
+        "description": "Bacaklardaki ağrı, şişlik ve istenmeyen damar görüntüsünden kurtulma tedavileri"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Derin Ven Trombozu (DVT) Tedavisi",
+        "description": "Derin ven trombozu gibi ciddi damar rahatsızlıklarının tedavisi"
+      }
+    }
+  ],
   "review": [
     {
       "@type": "Review",
@@ -103,6 +101,19 @@
         "bestRating": "5"
       },
       "reviewBody": "İlk muayeneden itibaren kendimi güvende hissettim. Açıklamaları, ilgisi ve uyguladığı tedaviyle bacaklarım yeniden hafifledi. Gerçekten işini hakkıyla yapan biri."
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Hasan Kılıç"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "3",
+        "bestRating": "5"
+      },
+      "reviewBody": "Eşim için başvurduk ama sonunda ikimiz de doktor beyin ilgisine hayran kaldık. Hem bilgi hem deneyim açısından çok donanımlı. Şikayetler kısa sürede gözle görülür şekilde azaldı"
     }
   ],
   "sameAs": [
@@ -478,5 +489,6 @@
 
     </body>
 </html>
+
 
 
