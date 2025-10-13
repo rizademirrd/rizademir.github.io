@@ -254,14 +254,12 @@ strong {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  overflow: hidden;
 }
 
 .hero .container {
   position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
+  height: 580px;
 }
 
 .heroText {
