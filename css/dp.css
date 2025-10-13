@@ -190,12 +190,14 @@ strong {
   vertical-align: top;
   min-width: 250px;
   position: relative;
+  height: 60px;
 }
 
 .animated-item {
   color: var(--primary-color);
   font-size: var(--h1-font-size);
   font-weight: var(--font-weight-bold);
+  line-height: 1.2;
 }
 
 .animated-item {
@@ -246,47 +248,86 @@ strong {
 }
 
 /*---------------------------------------
-  HERO              
+  HERO - GÜNCELLENDİ              
 -----------------------------------------*/
 .hero {  
-  padding-top: 0rem;
+  padding-top: 0;
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .hero .container {
   position: relative;
-  overflow: hidden;
-  height: 580px;
+  height: 100vh;
+  padding: 0;
 }
 
-.heroText {
-  background: var(--white-color);
+/* CAROUSEL GÜNCELLEMELERİ */
+#myCarousel {
   position: absolute;
-  z-index: 2;
-  bottom: 0;
-  right: 0;
-  padding: 1.5rem 2.5rem;
-  width: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.8);
+}
+
+/* HERO TEXT GÜNCELLEMELERİ */
+.heroText {
+  background: rgba(255, 255, 255, 0.95);
+  position: relative;
+  z-index: 3;
+  padding: 3rem;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  backdrop-filter: blur(10px);
 }
 
 .heroText h1 {
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+  font-size: var(--h1-font-size);
+  text-align: center;
 }
 
 .heroText p {
-  font-size: var(--p-font-size);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  color: var(--p-color);
+  text-align: center;
+  font-weight: var(--font-weight-normal);
 }
 
 .contact-phone {
   font-weight: var(--font-weight-semibold);
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
 }
 
 .contact-phone i {
@@ -297,7 +338,45 @@ strong {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* Carousel kontrol düğmeleri */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+  background: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev {
+  left: 30px;
+}
+
+.carousel-control-next {
+  right: 30px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
+  width: 25px;
+  height: 25px;
 }
 
 /*---------------------------------------
@@ -727,7 +806,7 @@ strong {
 .responsive-form {
     position: relative;
     width: 100%;
-    padding-bottom: 125%; /* Yüksekliği ayarlamak için oran; gerekirse değiştir */
+    padding-bottom: 125%;
     height: 0;
     overflow: hidden;
 }
@@ -740,7 +819,6 @@ strong {
     height: 100%;
     border: 0;
 }
-
 
 .booking-form .form-control {
   background: transparent;
@@ -812,17 +890,18 @@ strong {
 }
 
 /*---------------------------------------
-  RESPONSIVE STYLES               
+  RESPONSIVE STYLES - GÜNCELLENDİ              
 -----------------------------------------*/
 @media screen and (min-width: 1600px) {
   .hero .container {
-    height: 740px;
+    height: 800px;
   }
 }
 
 @media screen and (max-width: 1199px) {
   .heroText {
-    width: 60%;
+    max-width: 550px;
+    padding: 2.5rem;
   }
 }
 
@@ -871,17 +950,17 @@ strong {
   }
 
   .hero .container {
-    height: inherit;
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0;
   }
 
   .heroText {
     position: relative;
-    bottom: 100px;
-    left: 0;
-    width: 100%;
-    margin-bottom: -100px;
-    padding: 2rem;
-    text-align: center;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    width: 90%;
+    max-width: none;
   }
 
   .featured-circle {
@@ -892,57 +971,76 @@ strong {
 
   /* Mobil için animated text düzenlemeleri */
   .animated-info {
-    min-width: 200px;
-    display: inline-block;
+    min-width: 220px;
+    height: 55px;
+  }
+
+  .animated-item {
+    font-size: 36px;
+  }
+
+  .heroText h1 {
+    font-size: 2.8rem;
+    line-height: 1.3;
+  }
+
+  .heroText p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  .heroLinks {
+    gap: 1.5rem;
+  }
+
+  .custom-link {
+    margin-right: 0 !important;
+    font-size: 16px;
+    padding: 0 35px;
+  }
+
+  .contact-phone {
+    font-size: 1.1rem;
+  }
+
+  /* Carousel kontrolleri mobil */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-control-prev {
+    left: 15px;
+  }
+
+  .carousel-control-next {
+    right: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heroText {
+    padding: 2rem;
+    margin: 1.5rem auto;
+  }
+
+  .heroText h1 {
+    font-size: 2.4rem;
   }
 
   .animated-item {
     font-size: 32px;
   }
 
-  .heroText h1 {
-    font-size: 2.5rem;
-    line-height: 1.3;
-  }
-
-  .heroText p {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  .heroLinks {
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .custom-link {
-    margin-right: 0 !important;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .heroText {
-    padding: 1.5rem;
-    bottom: 80px;
-    margin-bottom: -80px;
-  }
-
-  .heroText h1 {
-    font-size: 2rem;
-  }
-
-  .animated-item {
-    font-size: 28px;
-  }
-
   .animated-info {
-    min-width: 150px;
+    min-width: 180px;
+    height: 50px;
   }
 
   .heroText p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
   .featured-circle {
@@ -953,6 +1051,11 @@ strong {
 
   .featured-number {
     font-size: 6rem;
+  }
+
+  .heroLinks {
+    flex-direction: column;
+    gap: 1.2rem;
   }
 
   .reviews-carousel .owl-nav {
@@ -975,11 +1078,50 @@ strong {
 
 @media screen and (max-width: 575px) {
   .heroText {
-    padding: 1rem;
-    bottom: 60px;
-    margin-bottom: -60px;
+    padding: 1.5rem;
+    margin: 1rem auto;
   }
 
+  .heroText h1 {
+    font-size: 2rem;
+  }
+
+  .animated-item {
+    font-size: 28px;
+  }
+
+  .animated-info {
+    min-width: 150px;
+    height: 45px;
+  }
+
+  .heroText p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .custom-link {
+    font-size: 14px;
+    line-height: 40px;
+    padding: 0 25px;
+  }
+
+  .contact-phone {
+    font-size: 1rem;
+  }
+
+  .heroLinks {
+    gap: 1rem;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .heroText h1 {
     font-size: 1.8rem;
   }
@@ -989,49 +1131,36 @@ strong {
   }
 
   .animated-info {
-    min-width: 120px;
+    min-width: 130px;
+    height: 40px;
   }
 
   .heroText p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .custom-link {
-    font-size: 14px;
-    line-height: 35px;
+    font-size: 13px;
+    line-height: 38px;
     padding: 0 20px;
   }
 
   .contact-phone {
-    font-size: 14px;
+    font-size: 0.95rem;
   }
 
-  .heroLinks {
-    gap: 0.75rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .heroText h1 {
-    font-size: 1.6rem;
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
   }
 
-  .animated-item {
-    font-size: 22px;
+  .carousel-control-prev {
+    left: 10px;
   }
 
-  .heroText p {
-    font-size: 0.85rem;
-  }
-
-  .custom-link {
-    font-size: 12px;
-    line-height: 30px;
-    padding: 0 15px;
-  }
-
-  .contact-phone {
-    font-size: 12px;
+  .carousel-control-next {
+    right: 10px;
   }
 }
 
@@ -1059,33 +1188,34 @@ strong {
   }
 
   .heroText h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .animated-item {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .animated-info {
-    min-width: 100px;
+    min-width: 110px;
+    height: 35px;
   }
 }
 
 /* Ekstra küçük cihazlar için */
 @media screen and (max-width: 320px) {
   .heroText {
-    padding: 0.75rem;
+    padding: 1.25rem;
   }
   
   .heroText h1 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   
   .animated-item {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   .heroText p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
